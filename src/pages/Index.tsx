@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { useAuth } from '@/hooks/useAuth';
 import Navbar from '@/components/Navbar';
 import Hero from '@/components/Hero';
 import AgentGrid from '@/components/AgentGrid';
@@ -10,8 +11,10 @@ const Index = () => {
   const [agents, setAgents] = useState<Agent[]>([]);
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('All');
+  const { isAuthenticated } = useAuth();
 
   useEffect(() => {
+    if (!isAuthenticated) return;
     const loadAgents = async () => {
       try {
         const res = await fetchAgents();
@@ -22,7 +25,7 @@ const Index = () => {
       }
     };
     loadAgents();
-  }, []);
+  }, [isAuthenticated]);
 
   const filteredAgents = agents.filter(agent => {
     const matchesSearch =
