@@ -31,7 +31,7 @@ const UseCasesSection = () => {
   return (
     <section className="py-12 bg-gray-50">
       <div className="container mx-auto px-4">
-        <h2 className="text-3xl font-bold text-center mb-6">Agent Use Cases</h2>
+        <h2 className="text-3xl font-bold text-center mb-6">Agent Usecases</h2>
         <Tabs defaultValue={categories[0]} className="w-full">
           <TabsList className="flex flex-wrap justify-center gap-2 mb-6">
             {categories.map(cat => (

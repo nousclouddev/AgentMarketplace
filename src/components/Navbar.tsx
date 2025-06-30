@@ -30,6 +30,9 @@ const Navbar = () => {
             <Button variant="ghost" asChild className="hidden md:inline-flex">
               <Link to="/ecosystem">AgentEcoSystem</Link>
             </Button>
+            <Button variant="ghost" asChild className="hidden md:inline-flex">
+              <a href="https://nouscloud.tech/" target="_blank" rel="noopener noreferrer">Home</a>
+            </Button>
 
             {isAuthenticated ? (
               <Button variant="outline" onClick={logout} className="flex items-center space-x-2">
