@@ -8,6 +8,7 @@ import UseCasesSection from '@/components/UseCasesSection';
 import BookDemoSection from '@/components/BookDemoSection';
 import { Agent } from '@/types/agent';
 import { fetchAgents } from '@/utils/api';
+import { mockAgents } from '@/data/mockAgents';
 
 const Index = () => {
   const [agents, setAgents] = useState<Agent[]>([]);
@@ -44,14 +45,24 @@ const Index = () => {
     <div className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50">
       <Navbar />
       <Hero />
+      <section id="featured-agents" className="py-16">
+        <h2 className="text-3xl font-bold text-center mb-8">Featured Agents</h2>
+        <div className="container mx-auto px-4">
+          <AgentGrid agents={mockAgents} />
+        </div>
+      </section>
       <div className="container mx-auto px-4 py-12">
-        <SearchAndFilter
-          searchTerm={searchTerm}
-          setSearchTerm={setSearchTerm}
-          selectedCategory={selectedCategory}
-          setSelectedCategory={setSelectedCategory}
-        />
-        <AgentGrid agents={filteredAgents} />
+        {isAuthenticated && (
+          <>
+            <SearchAndFilter
+              searchTerm={searchTerm}
+              setSearchTerm={setSearchTerm}
+              selectedCategory={selectedCategory}
+              setSelectedCategory={setSelectedCategory}
+            />
+            <AgentGrid agents={filteredAgents} />
+          </>
+        )}
         <BookDemoSection />
       </div>
       <UseCasesSection />

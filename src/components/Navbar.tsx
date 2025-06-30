@@ -21,9 +21,9 @@ const Navbar = () => {
             <Button variant="ghost" asChild className="hidden md:inline-flex">
               <Link to="/agents">Browse Agents</Link>
             </Button>
-            <Button variant="ghost" asChild className="hidden md:inline-flex">
+            {/* <Button variant="ghost" asChild className="hidden md:inline-flex">
               <Link to="/about">About</Link>
-            </Button>
+            </Button> */}
             <Button variant="ghost" asChild className="hidden md:inline-flex">
               <Link to="/builder">AgentBuilder</Link>
             </Button>
