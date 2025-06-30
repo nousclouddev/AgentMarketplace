@@ -5,6 +5,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
+import AgentsDirectory from "./pages/AgentsDirectory";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import Verify from "./pages/Verify";
@@ -29,6 +30,7 @@ const App = () => (
           <Route path="/verify" element={<Verify />} />
 
           <Route path="/builder" element={<AgentBuilder />} />
+          <Route path="/agents" element={<AgentsDirectory />} />
           <Route path="/ecosystem" element={<AgentEcoSystem />} />
 
           <Route path="/agent/:id" element={<AgentDetails />} />

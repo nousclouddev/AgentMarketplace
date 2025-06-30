@@ -1,5 +1,6 @@
 import { Button } from '@/components/ui/button';
 import { ArrowRight, Zap, Shield, Clock } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import backgroundImage from '@/assets/background.png';
 
 const Hero = () => {
@@ -33,12 +34,15 @@ const Hero = () => {
             of pre-built solutions or deploy custom agents tailored to your needs.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
-            <Button 
-              size="lg" 
+            <Button
+              size="lg"
+              asChild
               className="text-lg px-8 py-3 bg-blue-600 hover:bg-blue-700 text-gray-50 font-medium shadow-lg"
             >
-              Explore Agents
-              <ArrowRight className="ml-2 h-5 w-5" />
+              <Link to="/agents" className="flex items-center">
+                Explore Agents
+                <ArrowRight className="ml-2 h-5 w-5" />
+              </Link>
             </Button>
             <Button 
               size="lg" 
