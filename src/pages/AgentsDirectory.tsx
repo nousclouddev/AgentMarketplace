@@ -48,7 +48,7 @@ const AgentsDirectory = () => {
           selectedCategory={selectedCategory}
           setSelectedCategory={setSelectedCategory}
         />
-        <AgentGrid agents={filteredAgents} />
+        <AgentGrid agents={filteredAgents} hideMeta />
       </div>
       <BookDemoSection />
     </div>

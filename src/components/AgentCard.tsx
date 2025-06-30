@@ -8,9 +8,10 @@ import { Play, Star, Users } from 'lucide-react';
 interface AgentCardProps {
   agent: Agent;
   onRun?: () => void; // 👈 optional handler for Run button
+  hideMeta?: boolean; // hide price, rating and users when true
 }
 
-const AgentCard = ({ agent, onRun }: AgentCardProps) => {
+const AgentCard = ({ agent, onRun, hideMeta = false }: AgentCardProps) => {
   return (
     <Card className="agent-card-hover h-full flex flex-col">
       <CardHeader>
@@ -29,22 +30,26 @@ const AgentCard = ({ agent, onRun }: AgentCardProps) => {
       </CardHeader>
 
       <CardContent className="flex-1">
-        <div className="flex items-center gap-4 text-sm text-gray-600 mb-4">
-          <div className="flex items-center gap-1">
-            <Star className="h-4 w-4 fill-yellow-400 text-yellow-400" />
-            <span>{agent.rating}</span>
+        {!hideMeta && (
+          <div className="flex items-center gap-4 text-sm text-gray-600 mb-4">
+            <div className="flex items-center gap-1">
+              <Star className="h-4 w-4 fill-yellow-400 text-yellow-400" />
+              <span>{agent.rating}</span>
+            </div>
+            <div className="flex items-center gap-1">
+              <Users className="h-4 w-4" />
+              <span>{agent.users} users</span>
+            </div>
           </div>
-          <div className="flex items-center gap-1">
-            <Users className="h-4 w-4" />
-            <span>{agent.users} users</span>
-          </div>
-        </div>
+        )}
 
         <div className="space-y-2">
-          <div className="text-sm">
-            <span className="font-medium">Price: </span>
-            <span className="text-green-600 font-semibold">${agent.price}/month</span>
-          </div>
+          {!hideMeta && (
+            <div className="text-sm">
+              <span className="font-medium">Price: </span>
+              <span className="text-green-600 font-semibold">${agent.price}/month</span>
+            </div>
+          )}
           <div className="text-sm">
             <span className="font-medium">Runtime: </span>
             <span>{agent.runtime}</span>
