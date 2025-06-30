@@ -35,5 +35,21 @@ export const useCases: UseCase[] = [
   {
     title: 'Legal',
     description: 'Draft documents, review contracts and research regulations.'
+  },
+  {
+    title: 'Healthcare',
+    description: 'Assist with patient triage, medical data analysis and health advice.'
+  },
+  {
+    title: 'Real Estate',
+    description: 'Automate property listings, client interactions and market research.'
+  },
+  {
+    title: 'Manufacturing',
+    description: 'Optimize production schedules and monitor quality control.'
+  },
+  {
+    title: 'Retail',
+    description: 'Manage inventory, personalize shopping experiences and analyze sales trends.'
   }
 ];
