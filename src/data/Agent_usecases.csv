@@ -1,0 +1,53 @@
+Category,Agent Name,Description,Complexity,Instant,Demo Readiness,Go-Live Time
+Marketing,Blog Writer,A multi-agent system that automates content creation and blog writing using Stanford Innovation Labs STORM algorithm.,Medium,Yes,,6-8 weeks
+Marketing,Email Marketer,"An autonomous email marketer that does detailed prospect research, identifies personalization points, writes emails, follows up, and books appointments.",Low,Yes,,4-6 weeks
+Marketing,LinkedIn Marketer,Repurposes internal blog posts and other research content into LinkedIn posts and posts automatically across the company's LinkedIn page.,Medium,No,,6-8 weeks
+Marketing,Twitter Posting Agent,Repurposes internal blog posts and other research content into Twitter posts and posts automatically across the company's Twitter page.,Low,No,,4-6 weeks
+Marketing,SEO Optimizer,"Analyzes the supplied set of SEO keywords and improves the content, including blogs, case studies, and technical whitepapers to have a better SEO score.",Medium,No,,6-8 weeks
+Marketing,Lead Enrichment,Automatically enhances lead profiles with relevant business and contact information from multiple sources.,Medium,Yes,,6-8 weeks
+Marketing,Marketing Strategy Builder,"Develops comprehensive marketing plans based on user inputs, industry trends, competition, and business objectives.",High,Yes,,10-12 weeks
+Marketing,Press Release Writer,Creates professional press announcements with proper formatting and distribution recommendations.,Medium,No,,6-8 weeks
+Marketing,AI Video Generator,Transforms text content into engaging faceless AI short videos with graphics and voiceovers.,High,No,,10-12 weeks
+Marketing,Content Distribution Agent,Optimizes content sharing across multiple platforms with scheduling and performance tracking.,Medium,No,,6-8 weeks
+Marketing,Webinar Registration Agent,Manages the entire webinar signup process from registration to follow-up communications.,Medium,Yes,,6-8 weeks
+Marketing,Competitor Marketing Tracker,"Monitors competitor campaigns, messaging strategies, and digital presence for competitive intelligence.",Medium,Yes,,8-10 weeks
+Marketing,Newsletter Agent,"Curates content, designs layouts, and distributes regular newsletters to subscriber lists.",Low,Yes,,4-6 weeks
+Sales,AI SDR (Inbound),"Qualifies leads through automated outreach, following up with prospects based on engagement signals and books appointments.",High,Yes,,8-10 weeks
+Sales,AI Phone Dialler,Automates calling sequences with prospect tracking and conversation intelligence capabilities.,Medium,Yes,,8-10 weeks
+Sales,LinkedIn Outreach Agent,Executes targeted connection requests and messaging sequences to generate sales opportunities.,Medium,No,,6-8 weeks
+Sales,AI SMS Campaign Agent,Manages text message campaigns with personalization and response tracking features.,Medium,Yes,,6-8 weeks
+Sales,AI WhatsApp Campaign Agent,Delivers marketing and sales messages via WhatsApp with automated follow-up workflows.,Medium,Yes,,6-8 weeks
+Sales,List Builder,Creates targeted prospect lists from multiple data sources based on ideal customer profiles.,Low,Yes,,4-6 weeks
+Sales,AI Sales Coach,"Helps sellers do mock sales calls, get feedback on improving their sales pitch, and acts as a long-term memory enabled AI sales coach.",High,No,,10-12 weeks
+Customer Service,AI Customer Support,Resolves common customer issues through automated ticketing and knowledge base integration.,High,Yes,,10-12 weeks
+Customer Service,AI Phone Support,Handles customer inquiries via voice with natural language understanding and call routing.,High,Yes,,12-14 weeks
+Customer Service,Customer Onboarding Agent,Guides new customers through product setup and initial usage with personalized assistance.,Medium,Yes,,8-10 weeks
+Customer Service,Customer Support Chatbot,Provides 24/7 automated support via chat interfaces with escalation pathways for complex issues.,Medium,Yes,,8-10 weeks
+Customer Service,RCA Research Agent,Identifies root causes of customer issues through systematic analysis of feedback and support data.,Medium,No,,8-10 weeks
+Customer Service,Customer Sentiment Analysis,Analyzes support interactions to determine customer satisfaction and emotional response trends.,Medium,No,,6-8 weeks
+Customer Service,CSAT Surveys,Manages the distribution and analysis of customer satisfaction measurements after support interactions.,Low,No,,4-6 weeks
+Customer Service,Customer Testimonial Collector,Identifies satisfied customers and automates the collection of success stories and testimonials.,Low,No,,4-6 weeks
+HR,AI Hiring Assistant,"Screens resumes, schedules interviews, and manages initial candidate communications automatically.",High,Yes,,10-12 weeks
+HR,AI Performance Review Agent,"Collects feedback, generates performance assessments, and facilitates evaluation processes.",Medium,Yes,,8-10 weeks
+HR,JD Generator,Creates detailed job descriptions based on role requirements and company culture.,Low,Yes,,2-4 weeks
+HR,Candidate Screening,Evaluates applicants against job requirements through automated assessments and initial interviews.,Medium,No,,6-8 weeks
+HR,ESAT Survey Agent,"Designs, distributes, follows up with employees and analyzes employee satisfaction surveys with actionable insights.",Medium,No,,6-8 weeks
+HR,Employee Onboarding Agent,"Automates new hire paperwork, training scheduling, and initial orientation processes.",Medium,No,,8-10 weeks
+HR,HR Helpdesk Agent,Provides instant answers to common HR questions and routes complex inquiries appropriately.,Medium,Yes,,6-8 weeks
+HR,AI L&D Agent,"Helps employees go through training, evaluates their learning, and simulates real-world scenarios to apply it.",Medium,No,,8-12 weeks
+Finance,Cash Flow Prediction Agent,"Analyzes financial data to predict cash inflows, outflows, and liquidity risks in real time.",High,No,,12-14 weeks
+Finance,Invoice Payment Agent,"Automates invoice verification, payment scheduling, and reconciliation for accounts payable.",High,No,,12-14 weeks
+Education,AI L&D Agent,"This agent helps employees go through training, and an AI tutor evaluates the employees' learning.",Medium,No,,8-12 weeks
+Travel,Travel Onboarding Agent,"Guides customers through itinerary planning, document uploads, and booking confirmations.",Medium,Yes,,8-10 weeks
+Legal,Legal Document Drafting,"Generates legal documents according to company policy, including customer-facing and internal agreements.",Medium,No,,8-12 weeks
+HR,Training Feedback Analyzer,Collects feedback from employees post-training sessions and generates actionable insights.,Medium,Yes,,6-8 weeks
+HR,Leave Management Assistant,"Automates leave request tracking, approval workflows, and policy compliance.",Low,Yes,,4-6 weeks
+Finance,Expense Report Validator,Verifies employee-submitted expenses against policy and flags anomalies.,Medium,Yes,,6-8 weeks
+Finance,Budget Planning Assistant,Helps finance teams prepare budget forecasts using past spend data and business targets.,High,No,,10-12 weeks
+Education,AI Course Builder,Builds customized course modules based on syllabus inputs and learner level.,High,No,,10-12 weeks
+Education,Student Query Bot,"Answers student questions related to admissions, course content, and schedules 24/7.",Medium,Yes,,6-8 weeks
+Travel,AI Travel Planner,"Suggests personalized travel itineraries based on user interests, budget, and travel history.",High,No,,8-10 weeks
+Travel,Visa Documentation Assistant,"Guides users through visa form filling, document gathering, and deadline tracking.",Medium,Yes,,6-8 weeks
+Legal,Contract Summary Agent,"Summarizes key terms, risks, and obligations from lengthy legal contracts.",High,No,,10-12 weeks
+Legal,Compliance Tracker,Monitors regulatory changes and alerts the legal team to ensure policy updates are applied.,High,Yes,,10-12 weeks
+Legal,Claims Processing,"Automates the intake, validation, and initial assessment of insurance claims",High,Yes,,12-14 weeks
