@@ -2,22 +2,25 @@ import { useEffect, useState } from 'react';
 import Navbar from '@/components/Navbar';
 import AgentGrid from '@/components/AgentGrid';
 import SearchAndFilter from '@/components/SearchAndFilter';
+import BookDemoSection from '@/components/BookDemoSection';
 import { Agent } from '@/types/agent';
-import { fetchAgents } from '@/utils/api';
 
 const AgentsDirectory = () => {
   const [agents, setAgents] = useState<Agent[]>([]);
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('All');
 
+  const AGENTS_URL = import.meta.env.VITE_AGENTS_URL || '/agents.json';
+
   useEffect(() => {
     const loadAgents = async () => {
       try {
-        const res = await fetchAgents();
-        setAgents(res.data);
+        const res = await fetch(AGENTS_URL);
+        if (!res.ok) throw new Error('Network error');
+        const data: Agent[] = await res.json();
+        setAgents(data);
       } catch (err) {
-        console.error('Error fetching agents:', err);
-        alert('Failed to load agents');
+        console.error('Error loading agents:', err);
       }
     };
     loadAgents();
@@ -47,6 +50,7 @@ const AgentsDirectory = () => {
         />
         <AgentGrid agents={filteredAgents} />
       </div>
+      <BookDemoSection />
     </div>
   );
 };

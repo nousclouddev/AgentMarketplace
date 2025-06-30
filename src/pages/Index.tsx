@@ -52,9 +52,9 @@ const Index = () => {
           setSelectedCategory={setSelectedCategory}
         />
         <AgentGrid agents={filteredAgents} />
+        <BookDemoSection />
       </div>
       <UseCasesSection />
-      <BookDemoSection />
     </div>
   );
 };
