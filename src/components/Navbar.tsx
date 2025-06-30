@@ -28,7 +28,7 @@ const Navbar = () => {
               <Link to="/builder">AgentBuilder</Link>
             </Button>
             <Button variant="ghost" asChild className="hidden md:inline-flex">
-              <Link to="/ecosystem">Ecosystem</Link>
+              <Link to="/ecosystem">AgentEcoSystem</Link>
             </Button>
 
             {isAuthenticated ? (
