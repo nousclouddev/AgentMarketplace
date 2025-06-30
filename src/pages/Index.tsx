@@ -45,12 +45,14 @@ const Index = () => {
     <div className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50">
       <Navbar />
       <Hero />
-      <section id="featured-agents" className="py-16">
-        <h2 className="text-3xl font-bold text-center mb-8">Featured Agents</h2>
-        <div className="container mx-auto px-4">
-          <AgentGrid agents={mockAgents} hideMeta={true} />
-        </div>
-      </section>
+      {!isAuthenticated && (
+        <section id="featured-agents" className="py-16">
+          <h2 className="text-3xl font-bold text-center mb-8">Featured Agents</h2>
+          <div className="container mx-auto px-4">
+            <AgentGrid agents={mockAgents} hideMeta={true} />
+          </div>
+        </section>
+      )}
       <div className="container mx-auto px-4 py-12">
         {isAuthenticated && (
           <>

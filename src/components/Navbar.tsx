@@ -19,6 +19,9 @@ const Navbar = () => {
 
           <div className="flex items-center space-x-4">
             <Button variant="ghost" asChild className="hidden md:inline-flex">
+              <a href="https://nouscloud.tech/" target="_blank" rel="noopener noreferrer">Home</a>
+            </Button>
+            <Button variant="ghost" asChild className="hidden md:inline-flex">
               <Link to="/agents">Browse Agents</Link>
             </Button>
             {/* <Button variant="ghost" asChild className="hidden md:inline-flex">
@@ -29,9 +32,6 @@ const Navbar = () => {
             </Button>
             <Button variant="ghost" asChild className="hidden md:inline-flex">
               <Link to="/ecosystem">AgentEcoSystem</Link>
-            </Button>
-            <Button variant="ghost" asChild className="hidden md:inline-flex">
-              <a href="https://nouscloud.tech/" target="_blank" rel="noopener noreferrer">Home</a>
             </Button>
 
             {isAuthenticated ? (

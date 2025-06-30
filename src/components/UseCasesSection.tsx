@@ -44,12 +44,15 @@ const UseCasesSection = () => {
             <TabsContent key={cat} value={cat} className="outline-none">
               <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
                 {grouped[cat].map(uc => (
-                  <Card key={uc['Agent Name']} className="h-full">
+                  <Card 
+                    key={uc['Agent Name']} 
+                    className="h-full border shadow-sm hover:shadow-md transition bg-gray-100 border-gray-200"
+                  >
                     <CardHeader>
-                      <CardTitle className="text-lg">{uc['Agent Name']}</CardTitle>
-                      <CardDescription>{uc.Description}</CardDescription>
+                      <CardTitle className="text-lg text-gray-900">{uc['Agent Name']}</CardTitle>
+                      <CardDescription className="text-gray-700">{uc.Description}</CardDescription>
                     </CardHeader>
-                    <CardContent className="text-sm space-y-1">
+                    <CardContent className="text-sm space-y-1 text-gray-900">
                       <p>
                         <span className="font-medium">Complexity:</span> {uc.Complexity}
                       </p>
