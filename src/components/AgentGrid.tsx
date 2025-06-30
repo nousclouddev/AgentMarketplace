@@ -4,9 +4,10 @@ import { runAgent } from '@/utils/api';
 
 interface AgentGridProps {
   agents: Agent[];
+  hideMeta?: boolean; // hide price, rating and user stats for each card
 }
 
-const AgentGrid = ({ agents }: AgentGridProps) => {
+const AgentGrid = ({ agents, hideMeta = false }: AgentGridProps) => {
   const handleRun = async (id: string) => {
     try {
       await runAgent(id);
@@ -20,7 +21,12 @@ const AgentGrid = ({ agents }: AgentGridProps) => {
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
       {agents.map(agent => (
-        <AgentCard key={agent.id} agent={agent} onRun={() => handleRun(agent.id)} />
+        <AgentCard
+          key={agent.id}
+          agent={agent}
+          onRun={() => handleRun(agent.id)}
+          hideMeta={hideMeta}
+        />
       ))}
     </div>
   );
