@@ -4,6 +4,8 @@ import Navbar from '@/components/Navbar';
 import Hero from '@/components/Hero';
 import AgentGrid from '@/components/AgentGrid';
 import SearchAndFilter from '@/components/SearchAndFilter';
+import UseCasesSection from '@/components/UseCasesSection';
+import BookDemoSection from '@/components/BookDemoSection';
 import { Agent } from '@/types/agent';
 import { fetchAgents } from '@/utils/api';
 
@@ -51,6 +53,8 @@ const Index = () => {
         />
         <AgentGrid agents={filteredAgents} />
       </div>
+      <UseCasesSection />
+      <BookDemoSection />
     </div>
   );
 };

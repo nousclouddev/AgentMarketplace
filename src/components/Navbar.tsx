@@ -24,6 +24,12 @@ const Navbar = () => {
             <Button variant="ghost" asChild className="hidden md:inline-flex">
               <Link to="/about">About</Link>
             </Button>
+            <Button variant="ghost" asChild className="hidden md:inline-flex">
+              <Link to="/builder">AgentBuilder</Link>
+            </Button>
+            <Button variant="ghost" asChild className="hidden md:inline-flex">
+              <Link to="/ecosystem">Ecosystem</Link>
+            </Button>
 
             {isAuthenticated ? (
               <Button variant="outline" onClick={logout} className="flex items-center space-x-2">
