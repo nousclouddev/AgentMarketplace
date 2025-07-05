@@ -1,5 +1,6 @@
 import { useState, FormEvent } from 'react';
 import { Input } from '@/components/ui/input';
+import { Textarea } from '@/components/ui/textarea';
 import { Button } from '@/components/ui/button';
 
 declare const grecaptcha: any;
@@ -11,7 +12,9 @@ const API_KEY = 'DWNWK4r9jO10yqWZJDV6g4V1DwnOUKWm8FEw0Qyu';
 const RATE_LIMIT_MS = 10000;
 
 const BookDemoSection = () => {
+  const [name, setName] = useState('');
   const [email, setEmail] = useState('');
+  const [message, setMessage] = useState('');
   const [sent, setSent] = useState(false);
   const [loading, setLoading] = useState(false);
 
@@ -35,8 +38,9 @@ const BookDemoSection = () => {
   const sendEmail = (token: string) => {
     const payload = {
       to: 'info@nouscloud.tech',
-      subject: 'Demo Request',
-      text: email,
+      subject: 'book a demo',
+      text: `Name: ${name}\nEmail: ${email}\nMessage: ${message}`,
+      sender: email,
       recaptchaToken: token,
     };
 
@@ -51,6 +55,9 @@ const BookDemoSection = () => {
       .then(res => res.json())
       .then(() => {
         setSent(true);
+        setName('');
+        setEmail('');
+        setMessage('');
         localStorage.setItem('lastEmailTime', Date.now().toString());
       })
       .catch(() => alert('Failed to send message'))
@@ -61,13 +68,27 @@ const BookDemoSection = () => {
     <section className="py-12 bg-gray-50">
       <div className="container mx-auto px-4 text-center">
         <h2 className="text-3xl font-bold mb-4">Book a Demo</h2>
-        <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row max-w-md mx-auto gap-2">
+        <form onSubmit={handleSubmit} className="flex flex-col max-w-md mx-auto gap-2">
+          <Input
+            type="text"
+            placeholder="Name"
+            value={name}
+            onChange={e => setName(e.target.value)}
+            required
+          />
           <Input
             type="email"
             placeholder="Email"
             value={email}
             onChange={e => setEmail(e.target.value)}
             required
+          />
+          <Textarea
+            placeholder="Message"
+            value={message}
+            onChange={e => setMessage(e.target.value)}
+            required
+            className="min-h-[120px]"
           />
           <Button type="submit" disabled={loading}>
             {loading ? 'Sending...' : 'Schedule Demo'}
