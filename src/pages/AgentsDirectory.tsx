@@ -50,7 +50,7 @@ const AgentsDirectory = () => {
         />
         <AgentGrid agents={filteredAgents} hideMeta />
       </div>
-      <BookDemoSection />
+      {/* <BookDemoSection /> removed as per request */}
     </div>
   );
 };

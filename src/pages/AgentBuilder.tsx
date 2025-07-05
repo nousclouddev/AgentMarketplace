@@ -8,7 +8,7 @@ import ReCAPTCHA from 'react-google-recaptcha';
 
 const SITE_KEY = import.meta.env.VITE_RECAPTCHA_SITE_KEY || '<SITE_KEY>';
 const API_URL =
-  'https://5zt0gybyx1.execute-api.ap-south-1.amazonaws.com/send';
+  'https://5zt0gybyx1.execute-api.ap-south-1.amazonaws.com/prod/send';
 const API_KEY = 'DWNWK4r9jO10yqWZJDV6g4V1DwnOUKWm8FEw0Qyu';
 const RATE_LIMIT_MS = 10000;
 
@@ -73,6 +73,8 @@ const AgentBuilder = () => {
         } else {
           const error = data && data.message ? data.message : await res.text();
           alert('Failed to send message: ' + error);
+          // Debug: show payload and status
+          alert('Debug info: ' + JSON.stringify(payload) + ' | Status: ' + res.status);
         }
       })
       .catch(() => alert('Failed to send message'))
