@@ -40,9 +40,9 @@ const BookDemoSection = () => {
   const sendEmail = (token: string) => {
     const payload = {
       to: 'info@nouscloud.tech',
+      from: email,
       subject: 'book a demo',
       text: `Name: ${name}\nEmail: ${email}\nMessage: ${message}`,
-      sender: email,
       recaptchaToken: token
     };
 
