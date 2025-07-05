@@ -57,6 +57,7 @@ const BookDemoSection = () => {
       .then(async res => {
         if (res.ok) {
           await res.json();
+          alert('Successfully sent message');
           setSent(true);
           setName('');
           setEmail('');
