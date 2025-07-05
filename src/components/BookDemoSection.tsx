@@ -42,8 +42,7 @@ const BookDemoSection = () => {
       to: 'info@nouscloud.tech',
       subject: 'book a demo',
       text: `Name: ${name}\nEmail: ${email}\nMessage: ${message}`,
-      sender: email,
-      recaptchaToken: token,
+      sender: email
     };
 
     fetch(API_URL, {
