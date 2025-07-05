@@ -12,7 +12,7 @@ const RATE_LIMIT_MS = 10000;
 
 const BookDemoSection = () => {
   const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
+  // Removed email field since it's not used in the form
   const [message, setMessage] = useState('');
   const [sent, setSent] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -40,9 +40,8 @@ const BookDemoSection = () => {
   const sendEmail = (token: string) => {
     const payload = {
       to: 'info@nouscloud.tech',
-      from: email,
       subject: 'book a demo',
-      text: `Name: ${name}\nEmail: ${email}\nMessage: ${message}`,
+      text: `Name: ${name}\nMessage: ${message}`,
       recaptchaToken: token
     };
 
@@ -65,7 +64,7 @@ const BookDemoSection = () => {
           alert('Successfully sent message');
           setSent(true);
           setName('');
-          setEmail('');
+          // setEmail('');
           setMessage('');
           setCaptcha('');
           recaptchaRef.current?.reset();
@@ -89,13 +88,6 @@ const BookDemoSection = () => {
             placeholder="Name"
             value={name}
             onChange={e => setName(e.target.value)}
-            required
-          />
-          <Input
-            type="email"
-            placeholder="Email"
-            value={email}
-            onChange={e => setEmail(e.target.value)}
             required
           />
           <Textarea
