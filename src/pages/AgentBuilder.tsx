@@ -11,11 +11,21 @@ const API_KEY = 'DWNWK4r9jO10yqWZJDV6g4V1DwnOUKWm8FEw0Qyu';
 const RATE_LIMIT_MS = 10000;
 
 const AgentBuilder = () => {
+  // Existing simple form state
   const [email, setEmail] = useState('');
   const [sent, setSent] = useState(false);
   const [loading, setLoading] = useState(false);
   const [captcha, setCaptcha] = useState('');
   const recaptchaRef = useRef<ReCAPTCHA>(null);
+
+  // New block state
+  const [name2, setName2] = useState('');
+  const [email2, setEmail2] = useState('');
+  const [message2, setMessage2] = useState('');
+  const [sent2, setSent2] = useState(false);
+  const [loading2, setLoading2] = useState(false);
+  const [captcha2, setCaptcha2] = useState('');
+  const recaptchaRef2 = useRef<ReCAPTCHA>(null);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -62,12 +72,69 @@ const AgentBuilder = () => {
       .finally(() => setLoading(false));
   };
 
+  // Handler for new block
+  const handleSubmit2 = (e: React.FormEvent) => {
+    e.preventDefault();
+    const last = Number(localStorage.getItem('lastEmailTime2'));
+    if (Date.now() - last < RATE_LIMIT_MS) {
+      alert('Please wait before sending another request.');
+      return;
+    }
+    if (!captcha2) {
+      alert('Please complete the captcha');
+      return;
+    }
+    setLoading2(true);
+    sendEmail2(captcha2);
+  };
+
+  const sendEmail2 = (token: string) => {
+    const payload = {
+      to: 'info@nouscloud.tech',
+      from: email2,
+      subject: 'book a demo',
+      text: `Name: ${name2}\nEmail: ${email2}\nMessage: ${message2}`,
+      recaptchaToken: token
+    };
+    fetch(API_URL, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'x-api-key': API_KEY,
+      },
+      body: JSON.stringify(payload),
+    })
+      .then(async res => {
+        let data;
+        try {
+          data = await res.json();
+        } catch (e) {
+          data = null;
+        }
+        if (res.ok || (data && data.message && data.message.toLowerCase().includes('success'))) {
+          alert('Successfully sent message');
+          setSent2(true);
+          setName2('');
+          setEmail2('');
+          setMessage2('');
+          setCaptcha2('');
+          recaptchaRef2.current?.reset();
+          localStorage.setItem('lastEmailTime2', Date.now().toString());
+        } else {
+          const error = data && data.message ? data.message : await res.text();
+          alert('Failed to send message: ' + error);
+        }
+      })
+      .catch(() => alert('Failed to send message'))
+      .finally(() => setLoading2(false));
+  };
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50">
       <Navbar />
       <div className="container mx-auto px-4 py-20 text-center">
         <h1 className="text-4xl font-bold mb-6">Connect with us</h1>
-        <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row max-w-md mx-auto gap-2">
+        <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row max-w-md mx-auto gap-2 mb-12">
           <Input
             type="email"
             placeholder="Email"
@@ -86,6 +153,44 @@ const AgentBuilder = () => {
           </Button>
         </form>
         {sent && <p className="mt-4 text-green-600">Thanks! We'll reach out soon.</p>}
+
+        {/* New block similar to BookDemoSection */}
+        <section className="py-12 bg-gray-50 rounded-lg shadow-md max-w-lg mx-auto mt-8">
+          <h2 className="text-2xl font-bold mb-4">Send us a message</h2>
+          <form onSubmit={handleSubmit2} className="flex flex-col gap-2">
+            <Input
+              type="text"
+              placeholder="Name"
+              value={name2}
+              onChange={e => setName2(e.target.value)}
+              required
+            />
+            <Input
+              type="email"
+              placeholder="Email"
+              value={email2}
+              onChange={e => setEmail2(e.target.value)}
+              required
+            />
+            <Textarea
+              placeholder="Message"
+              value={message2}
+              onChange={e => setMessage2(e.target.value)}
+              required
+              className="min-h-[120px]"
+            />
+            <ReCAPTCHA
+              ref={recaptchaRef2}
+              sitekey={SITE_KEY}
+              onChange={value => setCaptcha2(value || '')}
+              className="mx-auto"
+            />
+            <Button type="submit" disabled={loading2}>
+              {loading2 ? 'Sending...' : 'Send'}
+            </Button>
+          </form>
+          {sent2 && <p className="mt-4 text-green-600">Thanks! We'll reach out soon.</p>}
+        </section>
       </div>
     </div>
   );
