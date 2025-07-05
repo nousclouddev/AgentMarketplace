@@ -41,16 +41,16 @@ const Navbar = () => {
               <Link to="/">Home</Link>
             </Button>
             <Button variant="ghost" asChild>
-              <a href="https://nouscloud.tech/" target="_blank" rel="noopener noreferrer">Nouscloud</a>
-            </Button>
-            <Button variant="ghost" asChild>
-              <Link to="/agents">Browse Agents</Link>
+              <Link to="/agents">AI Agent Hub</Link>
             </Button>
             <Button variant="ghost" asChild>
               <Link to="/builder">AgentBuilder</Link>
             </Button>
             <Button variant="ghost" asChild>
               <Link to="/ecosystem">AgentEcoSystem</Link>
+            </Button>
+            <Button variant="ghost" asChild className="ml-auto">
+              <a href="https://nouscloud.tech/" target="_blank" rel="noopener noreferrer">Nouscloud</a>
             </Button>
             {isAuthenticated ? (
               <Button variant="outline" onClick={logout} className="flex items-center space-x-2">
@@ -92,10 +92,10 @@ const Navbar = () => {
           >
             <div className="flex flex-col items-center py-4 space-y-2">
               <Link to="/" className="w-full text-center py-2 hover:bg-gray-100 rounded" onClick={handleLinkClick}>Home</Link>
-              <a href="https://nouscloud.tech/" target="_blank" rel="noopener noreferrer" className="w-full text-center py-2 hover:bg-gray-100 rounded" onClick={handleLinkClick}>Nouscloud</a>
-              <Link to="/agents" className="w-full text-center py-2 hover:bg-gray-100 rounded" onClick={handleLinkClick}>Browse Agents</Link>
+              <Link to="/agents" className="w-full text-center py-2 hover:bg-gray-100 rounded" onClick={handleLinkClick}>AI Agent Hub</Link>
               <Link to="/builder" className="w-full text-center py-2 hover:bg-gray-100 rounded" onClick={handleLinkClick}>AgentBuilder</Link>
               <Link to="/ecosystem" className="w-full text-center py-2 hover:bg-gray-100 rounded" onClick={handleLinkClick}>AgentEcoSystem</Link>
+              <a href="https://nouscloud.tech/" target="_blank" rel="noopener noreferrer" className="w-full text-center py-2 hover:bg-gray-100 rounded" onClick={handleLinkClick}>Nouscloud</a>
               {isAuthenticated ? (
                 <button onClick={() => { logout(); handleLinkClick(); }} className="w-full text-center py-2 hover:bg-gray-100 rounded flex items-center justify-center gap-2">
                   <LogOut className="h-4 w-4" /> Logout
