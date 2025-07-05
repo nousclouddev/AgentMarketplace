@@ -1,9 +1,8 @@
-import { useState, FormEvent } from 'react';
+import { useState, FormEvent, useRef } from 'react';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Button } from '@/components/ui/button';
-
-declare const grecaptcha: any;
+import ReCAPTCHA from 'react-google-recaptcha';
 
 const SITE_KEY = import.meta.env.VITE_RECAPTCHA_SITE_KEY || '<SITE_KEY>';
 const API_URL =
@@ -17,6 +16,8 @@ const BookDemoSection = () => {
   const [message, setMessage] = useState('');
   const [sent, setSent] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [captcha, setCaptcha] = useState('');
+  const recaptchaRef = useRef<ReCAPTCHA>(null);
 
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
@@ -27,16 +28,13 @@ const BookDemoSection = () => {
       return;
     }
 
-    grecaptcha.ready(async () => {
-      setLoading(true);
-      try {
-        const token = await grecaptcha.execute(SITE_KEY, { action: 'submit' });
-        sendEmail(token);
-      } catch (err) {
-        alert('Failed to verify reCAPTCHA');
-        setLoading(false);
-      }
-    });
+    if (!captcha) {
+      alert('Please complete the captcha');
+      return;
+    }
+
+    setLoading(true);
+    sendEmail(captcha);
   };
 
   const sendEmail = (token: string) => {
@@ -62,6 +60,8 @@ const BookDemoSection = () => {
         setName('');
         setEmail('');
         setMessage('');
+        setCaptcha('');
+        recaptchaRef.current?.reset();
         localStorage.setItem('lastEmailTime', Date.now().toString());
       })
       .catch(() => alert('Failed to send message'))
@@ -93,6 +93,12 @@ const BookDemoSection = () => {
             onChange={e => setMessage(e.target.value)}
             required
             className="min-h-[120px]"
+          />
+          <ReCAPTCHA
+            ref={recaptchaRef}
+            sitekey={SITE_KEY}
+            onChange={value => setCaptcha(value || '')}
+            className="mx-auto"
           />
           <Button type="submit" disabled={loading}>
             {loading ? 'Sending...' : 'Schedule Demo'}

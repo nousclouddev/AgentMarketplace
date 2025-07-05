@@ -1,9 +1,8 @@
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import Navbar from '@/components/Navbar';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
-
-declare const grecaptcha: any;
+import ReCAPTCHA from 'react-google-recaptcha';
 
 const SITE_KEY = import.meta.env.VITE_RECAPTCHA_SITE_KEY || '<SITE_KEY>';
 const API_URL =
@@ -15,6 +14,8 @@ const AgentBuilder = () => {
   const [email, setEmail] = useState('');
   const [sent, setSent] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [captcha, setCaptcha] = useState('');
+  const recaptchaRef = useRef<ReCAPTCHA>(null);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -25,16 +26,13 @@ const AgentBuilder = () => {
       return;
     }
 
-    grecaptcha.ready(async () => {
-      setLoading(true);
-      try {
-        const token = await grecaptcha.execute(SITE_KEY, { action: 'submit' });
-        sendEmail(token);
-      } catch (err) {
-        alert('Failed to verify reCAPTCHA');
-        setLoading(false);
-      }
-    });
+    if (!captcha) {
+      alert('Please complete the captcha');
+      return;
+    }
+
+    setLoading(true);
+    sendEmail(captcha);
   };
 
   const sendEmail = (token: string) => {
@@ -56,6 +54,8 @@ const AgentBuilder = () => {
       .then(res => res.json())
       .then(() => {
         setSent(true);
+        setCaptcha('');
+        recaptchaRef.current?.reset();
         localStorage.setItem('lastEmailTime', Date.now().toString());
       })
       .catch(() => alert('Failed to send message'))
@@ -74,6 +74,12 @@ const AgentBuilder = () => {
             value={email}
             onChange={e => setEmail(e.target.value)}
             required
+          />
+          <ReCAPTCHA
+            ref={recaptchaRef}
+            sitekey={SITE_KEY}
+            onChange={value => setCaptcha(value || '')}
+            className="mx-auto"
           />
           <Button type="submit" disabled={loading}>
             {loading ? 'Sending...' : 'Send'}
