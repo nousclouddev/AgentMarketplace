@@ -47,7 +47,7 @@ const Navbar = () => {
               <Link to="/builder">AgentBuilder</Link>
             </Button>
             <Button variant="ghost" asChild>
-              <Link to="/ecosystem">AgentEcoSystem</Link>
+              <Link to="/ecosystem">AgenticAI Ecosystem</Link>
             </Button>
             <Button variant="ghost" asChild className="ml-auto">
               <a href="https://nouscloud.tech/" target="_blank" rel="noopener noreferrer">Nouscloud</a>
@@ -94,7 +94,7 @@ const Navbar = () => {
               <Link to="/" className="w-full text-center py-2 hover:bg-gray-100 rounded" onClick={handleLinkClick}>Home</Link>
               <Link to="/agents" className="w-full text-center py-2 hover:bg-gray-100 rounded" onClick={handleLinkClick}>AI Agent Hub</Link>
               <Link to="/builder" className="w-full text-center py-2 hover:bg-gray-100 rounded" onClick={handleLinkClick}>AgentBuilder</Link>
-              <Link to="/ecosystem" className="w-full text-center py-2 hover:bg-gray-100 rounded" onClick={handleLinkClick}>AgentEcoSystem</Link>
+              <Link to="/ecosystem" className="w-full text-center py-2 hover:bg-gray-100 rounded" onClick={handleLinkClick}>AgenticAI Ecosystem</Link>
               <a href="https://nouscloud.tech/" target="_blank" rel="noopener noreferrer" className="w-full text-center py-2 hover:bg-gray-100 rounded" onClick={handleLinkClick}>Nouscloud</a>
               {isAuthenticated ? (
                 <button onClick={() => { logout(); handleLinkClick(); }} className="w-full text-center py-2 hover:bg-gray-100 rounded flex items-center justify-center gap-2">
