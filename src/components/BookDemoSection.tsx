@@ -54,15 +54,20 @@ const BookDemoSection = () => {
       },
       body: JSON.stringify(payload),
     })
-      .then(res => res.json())
-      .then(() => {
-        setSent(true);
-        setName('');
-        setEmail('');
-        setMessage('');
-        setCaptcha('');
-        recaptchaRef.current?.reset();
-        localStorage.setItem('lastEmailTime', Date.now().toString());
+      .then(async res => {
+        if (res.ok) {
+          await res.json();
+          setSent(true);
+          setName('');
+          setEmail('');
+          setMessage('');
+          setCaptcha('');
+          recaptchaRef.current?.reset();
+          localStorage.setItem('lastEmailTime', Date.now().toString());
+        } else {
+          const error = await res.text();
+          alert('Failed to send message: ' + error);
+        }
       })
       .catch(() => alert('Failed to send message'))
       .finally(() => setLoading(false));
