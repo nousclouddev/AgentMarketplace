@@ -38,7 +38,10 @@ const Navbar = () => {
           {/* Desktop Nav */}
           <div className="flex items-center space-x-4 hidden md:flex">
             <Button variant="ghost" asChild>
-              <a href="https://nouscloud.tech/" target="_blank" rel="noopener noreferrer">Home</a>
+              <Link to="/">Home</Link>
+            </Button>
+            <Button variant="ghost" asChild>
+              <a href="https://nouscloud.tech/" target="_blank" rel="noopener noreferrer">Nouscloud</a>
             </Button>
             <Button variant="ghost" asChild>
               <Link to="/agents">Browse Agents</Link>
@@ -88,7 +91,8 @@ const Navbar = () => {
             className="md:hidden absolute left-0 right-0 top-20 z-50 bg-white border-b border-gray-200 shadow-lg animate-fade-in"
           >
             <div className="flex flex-col items-center py-4 space-y-2">
-              <a href="https://nouscloud.tech/" target="_blank" rel="noopener noreferrer" className="w-full text-center py-2 hover:bg-gray-100 rounded" onClick={handleLinkClick}>Home</a>
+              <Link to="/" className="w-full text-center py-2 hover:bg-gray-100 rounded" onClick={handleLinkClick}>Home</Link>
+              <a href="https://nouscloud.tech/" target="_blank" rel="noopener noreferrer" className="w-full text-center py-2 hover:bg-gray-100 rounded" onClick={handleLinkClick}>Nouscloud</a>
               <Link to="/agents" className="w-full text-center py-2 hover:bg-gray-100 rounded" onClick={handleLinkClick}>Browse Agents</Link>
               <Link to="/builder" className="w-full text-center py-2 hover:bg-gray-100 rounded" onClick={handleLinkClick}>AgentBuilder</Link>
               <Link to="/ecosystem" className="w-full text-center py-2 hover:bg-gray-100 rounded" onClick={handleLinkClick}>AgentEcoSystem</Link>
