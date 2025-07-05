@@ -80,12 +80,8 @@ const BookDemoSection = () => {
           setCaptcha('');
           recaptchaRef.current?.reset();
           localStorage.setItem('lastEmailTime', Date.now().toString());
-        } else {
-          const error = data && data.message ? data.message : await res.text();
-          alert('Failed to send message: ' + error);
         }
       })
-      .catch(() => alert('Failed to send message'))
       .finally(() => setLoading(false));
   };
 

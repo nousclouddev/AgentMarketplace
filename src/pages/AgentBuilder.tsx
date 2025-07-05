@@ -80,14 +80,8 @@ const AgentBuilder = () => {
           setCaptcha2('');
           recaptchaRef2.current?.reset();
           localStorage.setItem('lastEmailTime2', Date.now().toString());
-        } else {
-          const error = data && data.message ? data.message : await res.text();
-          alert('Failed to send message: ' + error);
-          // Debug: show payload and status
-          alert('Debug info: ' + JSON.stringify(payload) + ' | Status: ' + res.status);
         }
       })
-      .catch(() => alert('Failed to send message'))
       .finally(() => setLoading2(false));
   };
 
