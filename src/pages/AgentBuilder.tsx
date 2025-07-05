@@ -13,14 +13,7 @@ const API_KEY = 'DWNWK4r9jO10yqWZJDV6g4V1DwnOUKWm8FEw0Qyu';
 const RATE_LIMIT_MS = 10000;
 
 const AgentBuilder = () => {
-  // Existing simple form state
-  const [email, setEmail] = useState('');
-  const [sent, setSent] = useState(false);
-  const [loading, setLoading] = useState(false);
-  const [captcha, setCaptcha] = useState('');
-  const recaptchaRef = useRef<ReCAPTCHA>(null);
-
-  // New block state
+  // State for the contact form
   const [name2, setName2] = useState('');
   const [email2, setEmail2] = useState('');
   const [message2, setMessage2] = useState('');
@@ -28,51 +21,6 @@ const AgentBuilder = () => {
   const [loading2, setLoading2] = useState(false);
   const [captcha2, setCaptcha2] = useState('');
   const recaptchaRef2 = useRef<ReCAPTCHA>(null);
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-
-    const last = Number(localStorage.getItem('lastEmailTime'));
-    if (Date.now() - last < RATE_LIMIT_MS) {
-      alert('Please wait before sending another request.');
-      return;
-    }
-
-    if (!captcha) {
-      alert('Please complete the captcha');
-      return;
-    }
-
-    setLoading(true);
-    sendEmail(captcha);
-  };
-
-  const sendEmail = (token: string) => {
-    const payload = {
-      to: 'info@nouscloud.tech',
-      subject: 'Contact Request',
-      text: email,
-      recaptchaToken: token,
-    };
-
-    fetch(API_URL, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'x-api-key': API_KEY,
-      },
-      body: JSON.stringify(payload),
-    })
-      .then(res => res.json())
-      .then(() => {
-        setSent(true);
-        setCaptcha('');
-        recaptchaRef.current?.reset();
-        localStorage.setItem('lastEmailTime', Date.now().toString());
-      })
-      .catch(() => alert('Failed to send message'))
-      .finally(() => setLoading(false));
-  };
 
   // Handler for new block
   const handleSubmit2 = (e: React.FormEvent) => {
@@ -135,28 +83,7 @@ const AgentBuilder = () => {
     <div className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50">
       <Navbar />
       <div className="container mx-auto px-4 py-20 text-center">
-        <h1 className="text-4xl font-bold mb-6">Connect with us</h1>
-        <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row max-w-md mx-auto gap-2 mb-12">
-          <Input
-            type="email"
-            placeholder="Email"
-            value={email}
-            onChange={e => setEmail(e.target.value)}
-            required
-          />
-          <ReCAPTCHA
-            ref={recaptchaRef}
-            sitekey={SITE_KEY}
-            onChange={value => setCaptcha(value || '')}
-            className="mx-auto"
-          />
-          <Button type="submit" disabled={loading}>
-            {loading ? 'Sending...' : 'Send'}
-          </Button>
-        </form>
-        {sent && <p className="mt-4 text-green-600">Thanks! We'll reach out soon.</p>}
-
-        {/* New block similar to BookDemoSection */}
+        {/* Contact form */}
         <section className="py-12 bg-gray-50 rounded-lg shadow-md max-w-lg mx-auto mt-8">
           <h2 className="text-2xl font-bold mb-4">Send us a message</h2>
           <form onSubmit={handleSubmit2} className="flex flex-col gap-2">
@@ -191,7 +118,9 @@ const AgentBuilder = () => {
               {loading2 ? 'Sending...' : 'Send'}
             </Button>
           </form>
-          {sent2 && <p className="mt-4 text-green-600">Thanks! We'll reach out soon.</p>}
+          {sent2 && (
+            <p className="mt-4 text-green-600">Successfully sent message</p>
+          )}
         </section>
       </div>
     </div>
