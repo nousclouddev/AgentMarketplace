@@ -72,7 +72,6 @@ const BookDemoSection = () => {
                 /success|sent/i.test(data.message))));
 
         if (success) {
-          alert('Successfully sent message');
           setSent(true);
           setName('');
           setEmail('');

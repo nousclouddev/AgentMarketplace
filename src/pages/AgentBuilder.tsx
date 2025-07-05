@@ -72,7 +72,6 @@ const AgentBuilder = () => {
                 /success|sent/i.test(data.message))));
 
         if (success) {
-          alert('Successfully sent message');
           setSent2(true);
           setName2('');
           setEmail2('');
@@ -125,7 +124,7 @@ const AgentBuilder = () => {
             </Button>
           </form>
           {sent2 && (
-            <p className="mt-4 text-green-600">Successfully sent message</p>
+            <p className="mt-4 text-green-600">Thanks! We'll reach out soon.</p>
           )}
         </section>
       </div>
