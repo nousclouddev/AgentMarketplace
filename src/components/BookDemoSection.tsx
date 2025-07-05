@@ -61,11 +61,14 @@ const BookDemoSection = () => {
         } catch (e) {
           data = null;
         }
-        if (res.ok || (data && data.message && data.message.toLowerCase().includes('success'))) {
+        if (
+          (data && data.message && data.message.toLowerCase().includes('success')) ||
+          res.ok
+        ) {
           alert('Successfully sent message');
           setSent(true);
           setName('');
-          // setEmail('');
+          setEmail('');
           setMessage('');
           setCaptcha('');
           recaptchaRef.current?.reset();
