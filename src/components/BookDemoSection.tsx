@@ -58,13 +58,20 @@ const BookDemoSection = () => {
         let data;
         try {
           data = await res.json();
-        } catch (e) {
+        } catch {
           data = null;
         }
-        if (
-          (data && data.message && data.message.toLowerCase().includes('success')) ||
-          res.ok
-        ) {
+
+        const success =
+          res.ok ||
+          (data &&
+            ((typeof data.success === 'boolean' && data.success) ||
+              (typeof data.status === 'string' &&
+                data.status.toLowerCase() === 'success') ||
+              (typeof data.message === 'string' &&
+                /success|sent/i.test(data.message))));
+
+        if (success) {
           alert('Successfully sent message');
           setSent(true);
           setName('');

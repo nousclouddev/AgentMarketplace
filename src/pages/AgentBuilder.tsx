@@ -58,10 +58,20 @@ const AgentBuilder = () => {
         let data;
         try {
           data = await res.json();
-        } catch (e) {
+        } catch {
           data = null;
         }
-        if (res.ok || (data && data.message && data.message.toLowerCase().includes('success'))) {
+
+        const success =
+          res.ok ||
+          (data &&
+            ((typeof data.success === 'boolean' && data.success) ||
+              (typeof data.status === 'string' &&
+                data.status.toLowerCase() === 'success') ||
+              (typeof data.message === 'string' &&
+                /success|sent/i.test(data.message))));
+
+        if (success) {
           alert('Successfully sent message');
           setSent2(true);
           setName2('');
