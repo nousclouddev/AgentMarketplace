@@ -27,11 +27,15 @@ const BookDemoSection = () => {
       return;
     }
 
-    grecaptcha.ready(() => {
+    grecaptcha.ready(async () => {
       setLoading(true);
-      grecaptcha
-        .execute(SITE_KEY, { action: 'submit' })
-        .then((token: string) => sendEmail(token));
+      try {
+        const token = await grecaptcha.execute(SITE_KEY, { action: 'submit' });
+        sendEmail(token);
+      } catch (err) {
+        alert('Failed to verify reCAPTCHA');
+        setLoading(false);
+      }
     });
   };
 
