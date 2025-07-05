@@ -55,8 +55,13 @@ const BookDemoSection = () => {
       body: JSON.stringify(payload),
     })
       .then(async res => {
-        if (res.ok) {
-          await res.json();
+        let data;
+        try {
+          data = await res.json();
+        } catch (e) {
+          data = null;
+        }
+        if (res.ok || (data && data.message && data.message.toLowerCase().includes('success'))) {
           alert('Successfully sent message');
           setSent(true);
           setName('');
@@ -66,7 +71,7 @@ const BookDemoSection = () => {
           recaptchaRef.current?.reset();
           localStorage.setItem('lastEmailTime', Date.now().toString());
         } else {
-          const error = await res.text();
+          const error = data && data.message ? data.message : await res.text();
           alert('Failed to send message: ' + error);
         }
       })
