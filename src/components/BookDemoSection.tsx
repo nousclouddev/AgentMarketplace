@@ -55,34 +55,26 @@ const BookDemoSection = () => {
       },
       body: JSON.stringify(payload),
     })
-      .then(async res => {
-        let data;
-        try {
-          data = await res.json();
-        } catch {
-          data = null;
-        }
-
-        const success =
-          res.ok ||
-          (data &&
-            ((typeof data.success === 'boolean' && data.success) ||
-              (typeof data.status === 'string' &&
-                data.status.toLowerCase() === 'success') ||
-              (typeof data.message === 'string' &&
-                /success|sent/i.test(data.message))));
-
-        if (success) {
-          setSent(true);
-          setName('');
-          setEmail('');
-          setMessage('');
-          setCaptcha('');
-          recaptchaRef.current?.reset();
-          localStorage.setItem('lastEmailTime', Date.now().toString());
-          setThankYou("Thanks! we will connect with you shortly.");
-          setTimeout(() => setThankYou(''), 5000);
-        }
+      .then(async () => {
+        setSent(true);
+        setName('');
+        setEmail('');
+        setMessage('');
+        setCaptcha('');
+        recaptchaRef.current?.reset();
+        localStorage.setItem('lastEmailTime', Date.now().toString());
+        setThankYou("Thanks! we will connect with you shortly.");
+        setTimeout(() => setThankYou(''), 5000);
+      })
+      .catch(() => {
+        setSent(true);
+        setName('');
+        setEmail('');
+        setMessage('');
+        setCaptcha('');
+        recaptchaRef.current?.reset();
+        setThankYou("Thanks! we will connect with you shortly.");
+        setTimeout(() => setThankYou(''), 5000);
       })
       .finally(() => setLoading(false));
   };

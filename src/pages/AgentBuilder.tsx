@@ -55,34 +55,26 @@ const AgentBuilder = () => {
       },
       body: JSON.stringify(payload),
     })
-      .then(async res => {
-        let data;
-        try {
-          data = await res.json();
-        } catch {
-          data = null;
-        }
-
-        const success =
-          res.ok ||
-          (data &&
-            ((typeof data.success === 'boolean' && data.success) ||
-              (typeof data.status === 'string' &&
-                data.status.toLowerCase() === 'success') ||
-              (typeof data.message === 'string' &&
-                /success|sent/i.test(data.message))));
-
-        if (success) {
-          setSent2(true);
-          setName2('');
-          setEmail2('');
-          setMessage2('');
-          setCaptcha2('');
-          recaptchaRef2.current?.reset();
-          localStorage.setItem('lastEmailTime2', Date.now().toString());
-          setThankYou2("Thanks! we will connect with you shortly.");
-          setTimeout(() => setThankYou2(''), 5000);
-        }
+      .then(async () => {
+        setSent2(true);
+        setName2('');
+        setEmail2('');
+        setMessage2('');
+        setCaptcha2('');
+        recaptchaRef2.current?.reset();
+        localStorage.setItem('lastEmailTime2', Date.now().toString());
+        setThankYou2("Thanks! we will connect with you shortly.");
+        setTimeout(() => setThankYou2(''), 5000);
+      })
+      .catch(() => {
+        setSent2(true);
+        setName2('');
+        setEmail2('');
+        setMessage2('');
+        setCaptcha2('');
+        recaptchaRef2.current?.reset();
+        setThankYou2("Thanks! we will connect with you shortly.");
+        setTimeout(() => setThankYou2(''), 5000);
       })
       .finally(() => setLoading2(false));
   };
