@@ -52,6 +52,12 @@ const Navbar = () => {
             <Button variant="ghost" asChild className="ml-auto">
               <a href="https://nouscloud.tech/" target="_blank" rel="noopener noreferrer">Nouscloud</a>
             </Button>
+            {/* Book a Demo Button */}
+            <a href="/#book-demo" className="ml-2">
+              <Button className="bg-gradient-to-r from-blue-500 to-cyan-400 text-white font-semibold shadow-md hover:from-blue-600 hover:to-cyan-500 transition-colors">
+                Book a Demo
+              </Button>
+            </a>
             {isAuthenticated ? (
               <Button variant="outline" onClick={logout} className="flex items-center space-x-2">
                 <LogOut className="h-4 w-4" />
@@ -96,6 +102,10 @@ const Navbar = () => {
               <Link to="/builder" className="w-full text-center py-2 hover:bg-gray-100 rounded" onClick={handleLinkClick}>AgentBuilder</Link>
               <Link to="/ecosystem" className="w-full text-center py-2 hover:bg-gray-100 rounded" onClick={handleLinkClick}>AgenticAI Ecosystem</Link>
               <a href="https://nouscloud.tech/" target="_blank" rel="noopener noreferrer" className="w-full text-center py-2 hover:bg-gray-100 rounded" onClick={handleLinkClick}>Nouscloud</a>
+              {/* Book a Demo Button Mobile */}
+              <a href="/#book-demo" className="w-full text-center py-2 rounded font-semibold bg-gradient-to-r from-blue-500 to-cyan-400 text-white shadow-md hover:from-blue-600 hover:to-cyan-500 transition-colors mb-2" onClick={handleLinkClick}>
+                Book a Demo
+              </a>
               {isAuthenticated ? (
                 <button onClick={() => { logout(); handleLinkClick(); }} className="w-full text-center py-2 hover:bg-gray-100 rounded flex items-center justify-center gap-2">
                   <LogOut className="h-4 w-4" /> Logout
