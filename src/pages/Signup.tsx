@@ -63,7 +63,7 @@ const Signup = () => {
         </CardHeader>
         <CardContent>
           {!isSignUpEnabled && (
-            <div className="mb-4 p-3 bg-yellow-100 text-yellow-800 rounded text-center text-sm">
+            <div className="mb-4 p-3 bg-[#64748B] text-white rounded text-center text-sm">
               New signups are currently disabled. For access, please contact nouscloud@admin
             </div>
           )}

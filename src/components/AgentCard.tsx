@@ -33,7 +33,7 @@ const AgentCard = ({ agent, onRun, hideMeta = false }: AgentCardProps) => {
         {!hideMeta && (
           <div className="flex items-center gap-4 text-sm text-gray-600 mb-4">
             <div className="flex items-center gap-1">
-              <Star className="h-4 w-4 fill-yellow-400 text-yellow-400" />
+              <Star className="h-4 w-4 fill-[#64748B] text-[#64748B]" />
               <span>{agent.rating}</span>
             </div>
             <div className="flex items-center gap-1">

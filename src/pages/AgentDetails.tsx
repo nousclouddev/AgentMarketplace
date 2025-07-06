@@ -57,7 +57,7 @@ const AgentDetails = () => {
                 </CardDescription>
                 <div className="flex items-center gap-6 mt-4">
                   <div className="flex items-center gap-2">
-                    <Star className="h-5 w-5 fill-yellow-400 text-yellow-400" />
+                    <Star className="h-5 w-5 fill-[#64748B] text-[#64748B]" />
                     <span className="font-semibold">{agent.rating}</span>
                     <span className="text-gray-600">rating</span>
                   </div>
