@@ -17,6 +17,7 @@ const BookDemoSection = () => {
   const [sent, setSent] = useState(false);
   const [loading, setLoading] = useState(false);
   const [captcha, setCaptcha] = useState('');
+  const [thankYou, setThankYou] = useState('');
   const recaptchaRef = useRef<ReCAPTCHA>(null);
 
   const handleSubmit = (e: FormEvent) => {
@@ -79,6 +80,8 @@ const BookDemoSection = () => {
           setCaptcha('');
           recaptchaRef.current?.reset();
           localStorage.setItem('lastEmailTime', Date.now().toString());
+          setThankYou("Thanks! we will connect with you shortly.");
+          setTimeout(() => setThankYou(''), 5000);
         }
       })
       .finally(() => setLoading(false));
@@ -120,7 +123,7 @@ const BookDemoSection = () => {
             {loading ? 'Sending...' : 'Schedule Demo'}
           </Button>
         </form>
-        {sent && <p className="mt-4 text-green-600">Thanks! We'll reach out soon.</p>}
+        {thankYou && <p className="mt-4 text-green-600">{thankYou}</p>}
       </div>
     </section>
   );

@@ -20,6 +20,7 @@ const AgentBuilder = () => {
   const [sent2, setSent2] = useState(false);
   const [loading2, setLoading2] = useState(false);
   const [captcha2, setCaptcha2] = useState('');
+  const [thankYou2, setThankYou2] = useState('');
   const recaptchaRef2 = useRef<ReCAPTCHA>(null);
 
   // Handler for new block
@@ -79,6 +80,8 @@ const AgentBuilder = () => {
           setCaptcha2('');
           recaptchaRef2.current?.reset();
           localStorage.setItem('lastEmailTime2', Date.now().toString());
+          setThankYou2("Thanks! we will connect with you shortly.");
+          setTimeout(() => setThankYou2(''), 5000);
         }
       })
       .finally(() => setLoading2(false));
@@ -123,8 +126,8 @@ const AgentBuilder = () => {
               {loading2 ? 'Sending...' : 'Send'}
             </Button>
           </form>
-          {sent2 && (
-            <p className="mt-4 text-green-600">Thanks! We'll reach out soon.</p>
+          {thankYou2 && (
+            <p className="mt-4 text-green-600">{thankYou2}</p>
           )}
         </section>
       </div>
