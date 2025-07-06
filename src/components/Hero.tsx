@@ -33,23 +33,16 @@ const Hero = () => {
             Transform your business with intelligent AI agents. Browse our curated marketplace 
             of pre-built solutions or deploy custom agents tailored to your needs.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
+          <div className="flex justify-center mb-12">
             <Button
               size="lg"
               asChild
-              className="text-lg px-8 py-3 bg-blue-600 hover:bg-blue-700 text-gray-50 font-medium shadow-lg"
+              className="text-lg px-8 py-3 bg-gradient-to-r from-blue-600 via-blue-500 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-gray-50 font-medium shadow-lg mx-auto"
             >
               <Link to="/agents" className="flex items-center">
                 Explore Agents
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Link>
-            </Button>
-            <Button 
-              size="lg" 
-              variant="outline" 
-              className="text-lg px-8 py-3 text-gray-900 border-blue-300/50 hover:bg-blue-900/30 font-medium"
-            >
-              Learn More
             </Button>
           </div>
           

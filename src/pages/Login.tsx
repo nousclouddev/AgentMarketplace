@@ -50,6 +50,7 @@ const Login = () => {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 required
+                className="bg-[#f8fafc] border border-[#64748B] text-[#22223b] placeholder:text-[#64748B] focus-visible:ring-2 focus-visible:ring-[#64748B]"
               />
             </div>
             <div className="space-y-2">
@@ -61,6 +62,7 @@ const Login = () => {
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 required
+                className="bg-[#f8fafc] border border-[#64748B] text-[#22223b] placeholder:text-[#64748B] focus-visible:ring-2 focus-visible:ring-[#64748B]"
               />
             </div>
             <Button type="submit" className="w-full">

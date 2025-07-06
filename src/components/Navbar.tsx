@@ -65,13 +65,13 @@ const Navbar = () => {
               </Button>
             ) : (
               <>
-                <Button variant="outline" asChild>
+                <Button asChild className="bg-gradient-to-r from-blue-500 to-cyan-400 text-white font-semibold shadow-md hover:from-blue-600 hover:to-cyan-500 transition-colors">
                   <Link to="/login" className="flex items-center space-x-2">
                     <LogIn className="h-4 w-4" />
                     <span>Login</span>
                   </Link>
                 </Button>
-                <Button asChild>
+                <Button asChild className="bg-gradient-to-r from-blue-500 to-cyan-400 text-white font-semibold shadow-md hover:from-blue-600 hover:to-cyan-500 transition-colors">
                   <Link to="/signup" className="flex items-center space-x-2">
                     <User className="h-4 w-4" />
                     <span>Sign Up</span>

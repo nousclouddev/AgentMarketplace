@@ -93,6 +93,7 @@ const AgentBuilder = () => {
               value={name2}
               onChange={e => setName2(e.target.value)}
               required
+              className="bg-[#f8fafc] border border-[#64748B] text-[#22223b] placeholder:text-[#64748B] focus-visible:ring-2 focus-visible:ring-[#64748B]"
             />
             <Input
               type="email"
@@ -100,13 +101,14 @@ const AgentBuilder = () => {
               value={email2}
               onChange={e => setEmail2(e.target.value)}
               required
+              className="bg-[#f8fafc] border border-[#64748B] text-[#22223b] placeholder:text-[#64748B] focus-visible:ring-2 focus-visible:ring-[#64748B]"
             />
             <Textarea
               placeholder="Message"
               value={message2}
               onChange={e => setMessage2(e.target.value)}
               required
-              className="min-h-[120px]"
+              className="min-h-[120px] bg-[#f8fafc] border border-[#64748B] text-[#22223b] placeholder:text-[#64748B] focus-visible:ring-2 focus-visible:ring-[#64748B]"
             />
             <ReCAPTCHA
               ref={recaptchaRef2}

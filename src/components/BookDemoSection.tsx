@@ -90,6 +90,7 @@ const BookDemoSection = () => {
             value={name}
             onChange={e => setName(e.target.value)}
             required
+            className="bg-[#f8fafc] border border-[#64748B] text-[#22223b] placeholder:text-[#64748B] focus-visible:ring-2 focus-visible:ring-[#64748B]"
           />
           <Input
             type="email"
@@ -97,13 +98,14 @@ const BookDemoSection = () => {
             value={email}
             onChange={e => setEmail(e.target.value)}
             required
+            className="bg-[#f8fafc] border border-[#64748B] text-[#22223b] placeholder:text-[#64748B] focus-visible:ring-2 focus-visible:ring-[#64748B]"
           />
           <Textarea
             placeholder="Message"
             value={message}
             onChange={e => setMessage(e.target.value)}
             required
-            className="min-h-[120px]"
+            className="min-h-[120px] bg-[#f8fafc] border border-[#64748B] text-[#22223b] placeholder:text-[#64748B] focus-visible:ring-2 focus-visible:ring-[#64748B]"
           />
           <ReCAPTCHA
             ref={recaptchaRef}
