@@ -83,6 +83,19 @@ const AgentBuilder = () => {
     <div className="min-h-screen bg-gradient-to-br from-[#e2e8f0] via-[#b6c6e3] to-[#5ac8fa]">
       <Navbar />
       <div className="container mx-auto px-4 py-20 text-center">
+        {/* AgentBuilder No-Code Platform Announcement */}
+        <section className="max-w-2xl mx-auto mb-12 p-8 rounded-xl shadow-lg bg-white/90 border border-[#b6c6e3]">
+          <h2 className="text-3xl font-bold mb-4 text-transparent bg-clip-text bg-gradient-to-r from-blue-700 to-cyan-600">Introducing the AgentBuilder No-Code Platform</h2>
+          <p className="text-lg text-gray-800 mb-4">
+            Unlock the next generation of AI automation with our exclusive <span className="font-semibold text-blue-700">AgentBuilder</span> platform. Effortlessly create, orchestrate, and deploy multi-agent workflows—no coding required. Design complex agent collaborations visually, automate business processes, and scale your solutions with enterprise-grade security and reliability.
+          </p>
+          <p className="text-md text-gray-700 mb-2">
+            <span className="font-semibold text-cyan-700">Available exclusively for paid members:</span> Access advanced orchestration, premium support, and early feature releases. Join a community of innovators building the future of intelligent automation.
+          </p>
+          <p className="text-md text-gray-700">
+            Interested in early access or a demo? <span className="font-semibold">Send us a message below</span> and our team will reach out to you with details on membership and platform capabilities.
+          </p>
+        </section>
         {/* Contact form */}
         <section className="py-12 bg-gray-50 rounded-lg shadow-md max-w-lg mx-auto mt-8">
           <h2 className="text-2xl font-bold mb-4">Send us a message</h2>
