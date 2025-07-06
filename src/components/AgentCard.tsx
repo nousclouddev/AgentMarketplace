@@ -58,7 +58,7 @@ const AgentCard = ({ agent, onRun, hideMeta = false }: AgentCardProps) => {
       </CardContent>
 
       <CardFooter className="flex gap-2">
-        <Button asChild variant="outline" className="flex-1 border-[#64748B] text-white bg-gradient-to-br from-blue-500 to-purple-600 hover:from-[#64748B] hover:to-[#64748B] hover:text-white shadow-md hover:shadow-lg transition-all">
+        <Button asChild variant="outline" className="flex-1 bg-gradient-to-r from-blue-500 to-cyan-400 text-white font-semibold shadow-md hover:from-blue-600 hover:to-cyan-500 transition-colors">
           <Link to={`/agent/${agent.id}`}>
             View Details
           </Link>

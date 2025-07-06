@@ -37,7 +37,7 @@ const Hero = () => {
             <Button
               size="lg"
               asChild
-              className="text-lg px-8 py-3 bg-gradient-to-r from-blue-600 via-blue-500 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-gray-50 font-medium shadow-lg mx-auto"
+              className="text-lg px-8 py-3 bg-gradient-to-r from-blue-500 to-cyan-400 hover:from-blue-600 hover:to-cyan-500 text-white font-semibold shadow-md mx-auto"
             >
               <Link to="/agents" className="flex items-center">
                 Explore Agents

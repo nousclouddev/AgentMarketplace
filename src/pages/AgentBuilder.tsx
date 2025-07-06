@@ -80,7 +80,7 @@ const AgentBuilder = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50">
+    <div className="min-h-screen bg-gradient-to-br from-[#e2e8f0] via-[#b6c6e3] to-[#5ac8fa]">
       <Navbar />
       <div className="container mx-auto px-4 py-20 text-center">
         {/* Contact form */}

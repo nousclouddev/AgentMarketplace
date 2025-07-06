@@ -40,7 +40,7 @@ const SearchAndFilter = ({
           />
         </div>
         <Select value={selectedCategory} onValueChange={setSelectedCategory}>
-          <SelectTrigger className="w-full md:w-48 border-[#64748B] text-[#64748B] bg-gradient-to-br from-blue-500 to-purple-600 text-white shadow-md hover:shadow-lg transition-all">
+          <SelectTrigger className="w-full md:w-48 bg-gradient-to-r from-blue-500 to-cyan-400 text-white font-semibold shadow-md hover:from-blue-600 hover:to-cyan-500 transition-colors border-none">
             <SelectValue placeholder="Select category" />
           </SelectTrigger>
           <SelectContent className="bg-white border border-[#64748B]">
