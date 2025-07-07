@@ -4,14 +4,14 @@ import { Agent } from '@/types/agent';
 export const mockAgents: Agent[] = [
   {
     id: '1',
-    name: 'DataViz Pro',
+    name: 'DataViz Professional',
     description: 'Advanced data visualization agent that creates stunning charts and dashboards from your raw data automatically.',
     category: 'Data Analysis',
-    price: 29,
+    author: 'Nouscloud Consulting',
     rating: 4.8,
     users: 1250,
     runtime: 'Python 3.9',
-    author: 'DataTech Solutions',
+    // author replaced above
     tags: ['visualization', 'charts', 'analytics', 'dashboard'],
     features: [
       'Automatic chart generation',
@@ -26,11 +26,11 @@ export const mockAgents: Agent[] = [
     name: 'ChatBot Assistant',
     description: 'Intelligent customer service chatbot with natural language processing and multilingual support.',
     category: 'Customer Service',
-    price: 49,
+    author: 'Nouscloud Consulting',
     rating: 4.9,
     users: 2100,
     runtime: 'Node.js 18',
-    author: 'AI Support Inc',
+    // author replaced above
     tags: ['chatbot', 'nlp', 'customer-service', 'multilingual'],
     features: [
       '24/7 customer support',
@@ -45,11 +45,11 @@ export const mockAgents: Agent[] = [
     name: 'Content Creator',
     description: 'AI-powered content generation agent for blogs, social media, and marketing materials.',
     category: 'Content Creation',
-    price: 39,
+    author: 'Nouscloud Consulting',
     rating: 4.7,
     users: 890,
     runtime: 'Python 3.9',
-    author: 'ContentAI Labs',
+    // author replaced above
     tags: ['content', 'writing', 'marketing', 'seo'],
     features: [
       'SEO-optimized content',
@@ -64,11 +64,11 @@ export const mockAgents: Agent[] = [
     name: 'Email Marketing Bot',
     description: 'Automated email marketing campaigns with personalization and A/B testing capabilities.',
     category: 'Marketing',
-    price: 59,
+    author: 'Nouscloud Consulting',
     rating: 4.6,
     users: 675,
     runtime: 'Node.js 18',
-    author: 'MarketFlow Pro',
+    // author replaced above
     tags: ['email', 'marketing', 'automation', 'personalization'],
     features: [
       'Campaign automation',
@@ -83,11 +83,11 @@ export const mockAgents: Agent[] = [
     name: 'Code Review Assistant',
     description: 'Automated code review and quality analysis agent for multiple programming languages.',
     category: 'Development',
-    price: 79,
+    author: 'Nouscloud Consulting',
     rating: 4.9,
     users: 1450,
     runtime: 'Docker',
-    author: 'DevTools United',
+    // author replaced above
     tags: ['code-review', 'quality', 'development', 'automation'],
     features: [
       'Multi-language support',
@@ -102,11 +102,11 @@ export const mockAgents: Agent[] = [
     name: 'Financial Analyzer',
     description: 'Advanced financial data analysis and reporting agent with predictive modeling capabilities.',
     category: 'Finance',
-    price: 99,
+    author: 'Nouscloud Consulting',
     rating: 4.8,
     users: 540,
     runtime: 'Python 3.9',
-    author: 'FinTech Analytics',
+    // author replaced above
     tags: ['finance', 'analysis', 'predictive', 'reporting'],
     features: [
       'Predictive modeling',

@@ -4,7 +4,7 @@ export interface Agent {
   name: string;
   description: string;
   category: string;
-  price: number;
+  // price removed
   rating: number;
   users: number;
   runtime: string;
